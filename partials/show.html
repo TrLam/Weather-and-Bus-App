@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-xs-12 col.sm-6 col-md-6 bus">
+		<!-- Display route buttons -->
+		<div class="btn-group btn-group-justified">
+			<a ng-repeat="(route, id) in busctrl.routeObj" href="#" class="btn btn-primary customButton" ng-click="busctrl.request(route, id)">{{route}}</a>
+			<a ng-repeat="i in busctrl.empty" href="#/edit" class="btn btn-primary customButton" ng-click="busctrl.cancel()">
+				<img class="icon" src="/wbApp/img/empty-route.png" alt="empty route">
+			</a>
+		</div>
+
+		<!-- Display route info -->
+		<div>
+			<div class="busText center-block" ng-repeat="direction in busctrl.main">
+				<div ng-if="!busctrl.stopRunning">
+					<div>Next bus will arrive in {{direction.info.minSec}}</div>	
+					<div ng-repeat="data in direction.display">
+						<img class="icon" ng-src="{{data.icon}}" alt="{{data.altTag}}">
+						{{data.value}}
+					</div>
+				</div>
+				<div ng-if="busctrl.stopRunning">
+					<img class="icon" ng-src="{{direction.icon}}" alt="{{direction.altTag}}">
+						{{direction.value}}
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 editButton"><a href="#/edit" class="btn btn-primary btn-circle" ng-click="busctrl.cancel()"><span class="glyphicon glyphicon-pencil"></span></a></div>
+	</div>
+</div>

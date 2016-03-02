@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Toronto Weather and Bus Schedule App</title>
+	<!-- Angular JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<!-- Module to convert XML to JSON -->
+	<script src="/wbApp/app/core/x2js/xml2json.js" type="text/javascript" charset="UTF-8"></script>
+	<!-- Font -->
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<!-- Bootstrap and custom CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/wbApp/css/custom.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- JS -->
+	<script src="/wbApp/app/core/ui-router/release/angular-ui-router.js"></script>
+	<script src="/wbApp/app.js"></script>
+	<script src="/wbApp/app/core/server-service.js"></script>
+	<script src="/wbApp/app/core/helper-service.js"></script>
+	<script src="/wbApp/app/core/weather/weather-service.js"></script>
+	<script src="/wbApp/app/core/bus/bus-service.js"></script>
+	<script src="/wbApp/app/core/bus/bus-edit-service.js"></script>
+	<script src="/wbApp/app/components/weather-controller.js"></script>
+	<script src="/wbApp/app/components/bus-controller.js"></script>
+	<script src="/wbApp/app/components/bus-edit-controller.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<div ng-app="weatherBusApp" class="app">
+			<div ng-controller="WeatherCtrl as weatherctrl" class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6" id="wBackground" ng-click="weatherctrl.update()">
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p id="temperature">{{weatherctrl.curTemp.value}}{{weatherctrl.curTemp.unit}}</p>
+							<div id="wDescription">
+								{{weatherctrl.desc.value}}
+								<div ng-repeat="data in weatherctrl.info">
+									<img class="icon" ng-src="{{data.icon}}" alt="{{data.altTag}}">
+									{{data.value}} {{data.unit}}
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<img class="center-block" id="wIcon" ng-src="{{weatherctrl.desc.icon}}" alt="{{data.altTag}}">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ui-view></div>
+		</div>
+	</div>
+</body>
+</html>

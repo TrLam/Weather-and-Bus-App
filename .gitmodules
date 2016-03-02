@@ -1,0 +1,12 @@
+[submodule "ui-router"]
+	path = ui-router
+	url = git://github.com/angular-ui/ui-router
+[submodule "x2js"]
+	path = x2js
+	url = git://github.com/abdmob/x2js
+[submodule "app/core/x2js"]
+	path = app/core/x2js
+	url = git://github.com/abdmob/x2js
+[submodule "app/core/ui-router"]
+	path = app/core/ui-router
+	url = git://github.com/angular-ui/ui-router

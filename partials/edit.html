@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-xs-12 col.sm-6 col-md-6 bus">
+		<div class="btn-group btn-group-justified">
+			<a href="#" class="btn btn-primary customButton"><img class="icon" src="/wbApp/img/empty-route.png" alt="empty route"></a>
+		</div>
+		<form id="editForm" name="editRoute" nonvalidate>
+			<div class="command" ng-show="editctrl.keyList.length > 0">Choose a route to remove</div>
+			<div class="lowLineHeight" ng-show="editctrl.keyList.length > 0">
+				<label class="radio-inline" ng-repeat="(route, id) in editctrl.routeObj">
+					<input type="radio" name="removedRoute" value={{route}} ng-model="editctrl.removed" ng-required="editctrl.keyList.length >= 3 && !editctrl.removed && editctrl.newRoute">
+					{{route}}
+				</label>
+				<div>
+					<i ng-show="editRoute.removedRoute.$invalid" class="help-block">To add a new route, you need to remove an existing one.</i>
+					<i>Maximum 3 routes are tracked at a time</i>
+				</div>
+			</div>
+			<div class="command">Add a new route</div>
+			<div class="form-inline">
+				<div class="form-group">
+		  			<label class="editRouteLabel" for="newRoute">Route</label>
+		  			<input id="newRoute" name="newRoute" class="form-control editInput" type="text" ng-model="editctrl.newRoute" ng-required="editctrl.newID">
+		  			<i ng-show="editRoute.newRoute.$invalid" class="help-block">Route number is required.</i>
+		  		</div>
+		  		<div class="form-group">
+		  			<label class="editRouteLabel" for="stopID">StopID</label>
+		  			<input id="stopID" name="stopID" class="form-control editInput" type="text" ng-model="editctrl.newID" ng-required="editctrl.newRoute">
+		  			<i ng-show="editRoute.stopID.$invalid" class="help-block">Stop number is required.</i>
+		  			<i ng-if="editctrl.noMatch" class="help-block">{{editctrl.noMatchMessage}}</i>
+		  		</div>
+		  		<p>You can find your stop number on <a href="https://www.ttc.ca/Routes/Buses.jsp">TTC.ca</a>.</p>
+		  	</div>
+		</form>
+		<div class="col-xs-12 col-sm-12 col-md-12 editButton">
+			<button type="submit" class="btn btn-primary btn-circle" ng-click="editctrl.edit()" ng-disabled="editRoute.$invalid">
+				<span class="glyphicon glyphicon-ok"></span>
+			</button>
+		</div>
+	</div>
+</div>
