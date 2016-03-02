@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('weatherBusApp', [
+	'ui.router',
 	'weatherBusApp.server',
 	'weatherBusApp.helper',
 	'weatherBusApp.weather',
