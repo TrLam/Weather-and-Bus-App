@@ -9,4 +9,4 @@
 	url = git://github.com/abdmob/x2js
 [submodule "app/core/ui-router"]
 	path = app/core/ui-router
-	url = git://github.com/angular-ui/ui-router
+	url = git://angular-ui/ui-router
