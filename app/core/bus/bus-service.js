@@ -93,7 +93,6 @@ angular.module('weatherBusApp.bus', [])
 					};
 					if (service.dataArray.length === 0 && predictions[0].hasOwnProperty('_dirTitleBecauseNoPredictions')) {
 						// No prediction in this list has a running route
-						service.dataArray.push({'icon': dataIcon.routeWithDir, 'altTag': 'Route', 'value': predictions._dirTitleBecauseNoPredictions});
 						service.dataArray.push({'icon': dataIcon.message, 'altTag': 'Message', 'value': 'No current prediction. Please check back later.'});
 					}
 				}
