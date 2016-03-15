@@ -11,7 +11,7 @@ angular.module('weatherBusApp.helper', [])
 
 	// Match time
 	service.matchTime = function (str) {
-		var regex = /(\d{1,2}:\d{2})(:\d{2} GMT-0500)/i;
+		var regex = /(\d{1,2}:\d{2})(:\d{2} GMT)/i;
 		return regex.exec(str)[1];
 	};
 
