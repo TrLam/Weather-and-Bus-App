@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('weatherBusApp')
-.controller('BusCtrl', function (bus, busEdit, helper, $interval) {
-	var vm = this;
-	vm.main = [];
+.controller('BusCtrl', ['bus', 'busEdit', 'helper', '$interval', function (bus, busEdit, helper, $interval) {
+  var vm = this;
+  vm.main = [];
     vm.stopRunning = false; // true when there is no more prediction for all versions of route (A, B, C, etc.)
     vm.inPromise = null; // Variable to hold the $interval promise
     vm.count = 0; // counter to make sure app update bus info every minute
@@ -43,7 +43,7 @@ angular.module('weatherBusApp')
                 });
             }
         };
-	};
+  };
 
     // Cancel $interval promise
     vm.cancel = function () {
@@ -72,4 +72,4 @@ angular.module('weatherBusApp')
     };
     vm.request(vm.keyList[0], vm.routeObj[vm.keyList[0]]);  // For demo only
 
-});
+}]);

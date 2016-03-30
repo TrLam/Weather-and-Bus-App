@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('weatherBusApp', [
-	'ui.router',
-	'weatherBusApp.server',
-	'weatherBusApp.helper',
-	'weatherBusApp.weather',
-	'weatherBusApp.bus',
-	'weatherBusApp.busEdit'
+  'ui.router',
+  'weatherBusApp.server',
+  'weatherBusApp.helper',
+  'weatherBusApp.weather',
+  'weatherBusApp.bus',
+  'weatherBusApp.busEdit'
 ]).
 config(function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
@@ -23,5 +23,5 @@ config(function ($stateProvider, $urlRouterProvider) {
 	})
 })
 .run(function ($log) {
-  $log.info('All ready!');
+	$log.info('All ready!');
 });
